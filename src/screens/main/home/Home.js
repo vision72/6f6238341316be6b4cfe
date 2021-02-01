@@ -3,6 +3,7 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Text, StyleSheet, TouchableOpacity, Image, View, StatusBar } from 'react-native';
 import { Content, Input, Item } from 'native-base';
+import { API_KEY } from '@env';
 
 import Button from '../../../components/button';
 
@@ -57,7 +58,7 @@ function Home({ navigation }) {
 		if (!Validator.validateField(asteroidId)) return Toast.warning('please fill the asteroid Id');
 		setIsLoading(true);
 		axios
-			.get(`https://api.nasa.gov/neo/rest/v1/neo/${asteroidId}?api_key=yitSbDgKTOY9XCQCmYDW48Z2MOOKcHR14qB02wOl`)
+			.get(`https://api.nasa.gov/neo/rest/v1/neo/${asteroidId}?api_key=${API_KEY}`)
 			.then(handleAsteroidResponse)
 			.catch(Toast.error)
 			.finally(() => setIsLoading(false));
@@ -66,7 +67,7 @@ function Home({ navigation }) {
 	const handleRandom = () => {
 		setIsLoading(true);
 		axios
-			.get(`https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=yitSbDgKTOY9XCQCmYDW48Z2MOOKcHR14qB02wOl`)
+			.get(`https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=${API_KEY}`)
 			.then(handleRandomResponse)
 			.catch(Toast.error)
 			.finally(() => setIsLoading(false));
