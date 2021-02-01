@@ -86,8 +86,13 @@ function Home({ navigation }) {
 					/>
 				</Item>
 				<View style={styles.buttonContainer}>
-					<Button isLoading={isLoading} onPress={handleSubmit} buttonTitle="SUBMIT" />
-					<Button isLoading={isLoading} onPress={handleRandom} buttonTitle="Random Asteroid" />
+					<Button isLoading={isLoading} onPress={handleSubmit} disabled={isLoading} buttonTitle="SUBMIT" />
+					<Button
+						isLoading={isLoading}
+						onPress={handleRandom}
+						disabled={isLoading}
+						buttonTitle="Random Asteroid"
+					/>
 				</View>
 			</View>
 		</View>
